@@ -25,7 +25,9 @@ library(tinytex)
 library(opendatatoronto)
 library(dplyr)
 library(janitor)
+library(kableExtra)
 ```
+
 
 ```{r}
 #| include: false
@@ -61,7 +63,7 @@ sum_total_data = read_csv(
 
 # Data
 
-Data used in this paper are retrieved from Open Data Toronto Portal through the library `opendatatoronto` [@R-opendatatoronto]. Data was cleaned and analyzed using the open source statistically programming language R [@R-base], using functionalities from `tidyverse` [@R-tidyverse], `ggplot2` [@R-ggplot2], `dplyr` [@R-dplyr], `readr` [@R-readr], `tibble` [@R-tibble], `janitor` [@R-janitor], `kableExtra` [@R-KableExtra] and `knitr` [@R-knitr]. Details of the data extraction and cleaning processes are discussed in the subsections below.
+Data used in this paper are retrieved from Open Data Toronto Portal through the library `opendatatoronto` [@R-opendatatoronto]. Data was cleaned and analyzed using the open source statistically programming language R [@R-base], using functionalities from `tidyverse` [@R-tidyverse], `ggplot2` [@R-ggplot2], `dplyr` [@R-dplyr], `readr` [@R-readr], `tibble` [@R-tibble], `janitor` [@R-janitor],  and `knitr` [@R-knitr]. Details of the data extraction and cleaning processes are discussed in the subsections below.
 
 
 ## Below is a table of the cleaned and filtered table of all distracted driving data
@@ -167,3 +169,8 @@ Upon looking at the summary, the graph below shows the total distracted driving 
 # Discussion
 
 # Conclusion
+
+
+\newpage
+
+# References
