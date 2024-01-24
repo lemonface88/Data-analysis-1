@@ -1,0 +1,169 @@
+---
+title: "Does Technology Advancement Decrease Distracted Driving?" 
+author: 
+  - Harrison Huang
+thanks: "Code and data are available at: https://github.com/lemonface88/Distracted-Driving-Analysis"
+date: today
+date-format: long
+abstract: "1) what was done, 2) what was found, and 3) why this matters (all at a high level). Likely four sentences. Abstract must make clear what we learn about the world because of this paper."
+
+format: pdf
+number-sections: true
+toc: true
+bibliography: references.bib
+---
+
+```{r}
+#| include: false
+#| warning: false
+#| message: false
+
+library(tidyverse)
+library(here)
+library(knitr)
+library(tinytex)
+library(opendatatoronto)
+library(dplyr)
+library(janitor)
+```
+
+```{r}
+#| include: false
+#| echo: false
+#| message: false
+
+# read cleaned youth data
+cleaned_youth_data = read_csv(
+  file = here("outputs/data/cleaned_youth_data.csv"),
+  show_col_types = FALSE
+)
+
+# read cleaned adult data
+cleaned_adult_data = read_csv(
+  file = here("outputs/data/cleaned_adult_data.csv"),
+  show_col_types = FALSE
+)
+
+# read cleaned ticket data
+ cleaned_ticket_data = read_csv(
+  file = here("outputs/data/cleaned_ticket_data.csv"),
+  show_col_types = FALSE
+)
+
+# read adult and youth data 
+sum_total_data = read_csv(
+  file = here("outputs/data/sum_total_data.csv"),
+  show_col_types = FALSE
+)
+```
+
+# Introduction
+
+# Data
+
+Data used in this paper are retrieved from Open Data Toronto Portal through the library `opendatatoronto` [@R-opendatatoronto]. Data was cleaned and analyzed using the open source statistically programming language R [@R-base], using functionalities from `tidyverse` [@R-tidyverse], `ggplot2` [@R-ggplot2], `dplyr` [@R-dplyr], `readr` [@R-readr], `tibble` [@R-tibble], `janitor` [@R-janitor], `kableExtra` [@R-KableExtra] and `knitr` [@R-knitr]. Details of the data extraction and cleaning processes are discussed in the subsections below.
+
+
+## Below is a table of the cleaned and filtered table of all distracted driving data
+The table is a representation of the selected columns that remain in the data set after cleaning. This table gives insight to the first 5 rows that are left in the distracted driving tickets handed out. 
+```{r}
+#| message: false
+#| echo: false
+#| label: tbl-cleaned_ticket_statistics
+#| tbl-cap: Sample of Cleaned ticket Statistics Data
+
+head (cleaned_ticket_data, 5) |>
+  kable(
+    col.names = c("Year", "Offence Type", "Age Group", "Ticket Count"),
+  booktabs = TRUE
+  )
+```
+
+## Violations by age groups
+
+So what about distracted driving violations? To dive deeper into to the data analysis, the table is then separated into a table that only includes either all youth violations or adult violations. @tbl-cleaned_youth_statistics is the version that only includes youth distracted driving data, and @tbl-cleaned_adult_statistics is the other version that only includes distracted driving.
+
+
+```{r}
+#| message: false
+#| echo: false
+#| label: tbl-cleaned_youth_statistics
+#| tbl-cap: Sample of Cleaned youth distracted driving
+
+only_youth_data <-
+  cleaned_youth_data |>
+  arrange(offence_year)|>
+  select(offence_year, ticket_count)
+  
+# each individual ticket count represents a different neighborhood
+head(only_youth_data, 5) |>
+  kable(
+    col.names = c("Year", "Ticket Count"),
+  booktabs = TRUE
+  )
+```
+
+
+```{r}
+#| message: false
+#| echo: false
+#| label: tbl-cleaned_adult_statistics
+#| tbl-cap: Sample of Cleaned adult distracted driving
+
+only_adult_data <-
+  cleaned_adult_data |>
+  arrange(offence_year)|>
+  select(offence_year, ticket_count)
+
+head (only_adult_data, 5) |>
+  kable(
+    col.names = c("Year", "Ticket Count"),
+  booktabs = TRUE
+  )
+```
+
+  
+# Results
+
+## Violations by youth group per year
+
+The graph below shows the total distracted driving violations cases in each year, which is inferred from the total number of tickets given for distracted driving. Overall, the trend sees a big dip in the year 2020 and 2021, this could be due to the effect of covid. As we all know, the lock down that happened during the pandemic prevented people from leaving the house, thus might have caused the overall decrease in the number of violations in those years. 
+
+```{r}
+  only_youth_data |> 
+  summarize(sum_per_year = sum(ticket_count, na.rm = TRUE),.by = offence_year) |>
+  
+  ggplot(mapping = aes(x = offence_year, y = sum_per_year))+ 
+  geom_bar(stat= 'identity') +
+  scale_x_continuous(breaks =c(2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022))+ 
+  labs(title = "Youth Distracted Driving violations Per year", x = "Year", y = "total ticket")
+```
+
+## Violations by adult group per year
+  The graph below shows the total distracted driving violations cases committed by adults in each year, which is inferred from the total number of tickets given for distracted driving. Overall, the trend sees a big dip in the year 2020 and 2021, this displays a similar trend as the youth drivers. With the two groups of driving having overall lower violations in the year 2020 and 2021, it could suggest that those years might have some other contributing factors involved other than the advancement of technology. 
+
+```{r}
+  only_adult_data |> 
+  summarize(sum_per_year = sum(ticket_count, na.rm = TRUE),.by = offence_year) |>
+  
+  ggplot(mapping = aes(x = offence_year, y = sum_per_year))+ 
+  geom_bar(stat= 'identity') +
+  scale_x_continuous(breaks =c(2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022))+ 
+  labs(title = "Adult Distracted Driving violations Per year", x = "Year", y = "total ticket")
+```
+
+## Overall violation by both groups per year
+
+Upon looking at the summary, the graph below shows the total distracted driving violations cases committed by both adults and youth in each year, which is inferred from the total number of tickets given for distracted driving. As absorbed above, 2020 and 2021 both indicate a big decrease in violation numbers compared to all the other years. However, by combining both of the you and adult data, the overall trend observed is that distracted driving violations have steadily decreased during 2015 to 2019. Despite the numbers increasing again in 2022, the total violations compared to 2015 is still less by about 4000 cases.
+
+```{r}
+  sum_total_data |> 
+  ggplot(mapping = aes(x = offence_year, y = total_violations))+ 
+  geom_bar(stat= 'identity') +
+  scale_x_continuous(breaks =c(2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023))+ 
+  labs(title = "Both Groups Distracted Driving violations Per year", x = "Year", y = "total ticket")
+```
+
+# Discussion
+
+# Conclusion
