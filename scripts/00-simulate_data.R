@@ -12,4 +12,5 @@ library(tidyverse)
 
 #### Build simulated data ####
 set.seed(888)
-
+install.packages("gitcreds")
+library(gitcreds)
