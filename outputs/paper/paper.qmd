@@ -5,7 +5,7 @@ author:
 thanks: "Code and data are available at: https://github.com/lemonface88/Distracted-Driving-Analysis"
 date: today
 date-format: long
-abstract: "1) what was done, 2) what was found, and 3) why this matters (all at a high level). Likely four sentences. Abstract must make clear what we learn about the world because of this paper."
+abstract: "Distracted driving is often a leading factor of traffic accidents. Using data from OpenDataToronto, this paper will look at how the improvements of technology over the years from 2016 contribute to the number of distracted driving violations. This analysis discovered with technology improving year by year, the overall trend of distracted driving is showing a decreasing trend."
 
 format: pdf
 number-sections: true
@@ -60,6 +60,7 @@ sum_total_data = read_csv(
 ```
 
 # Introduction
+As technology is improving everyday year by year, does it help us reduce distracted driving cases or does it increase the distractions in our surroundings? Distracted driving has been the root of many traffic accidents and caused many unfortunate events since personal handheld devices were introduced. With the advancement of technology, how has this been improved or has it worsened? To examine the impact of distracted driving in our everyday life, I will use the ticket data from open toronto specifically looking at distracted driving tickets, and infer the number of distracted driving occurrences from the ticket data. 
 
 # Data
 
@@ -167,9 +168,9 @@ Upon looking at the summary, the graph below shows the total distracted driving 
 ```
 
 # Discussion
-
+  Simply looking at the numbers of distracted driving tickets, the data shows an overall trend of decreasing occurrences. However, the youth group and adult groups show a slightly different trend with the youth group not showing a clear decreasing trend. A worthy mention is that the amount of youth data could be contributing to the different trend, because there is very little youth data compared to the adult data. In the future, it would be worthwhile to look at other data sets such as integrated technology trends such as how many models of cars have car play or support handless controls. 
 # Conclusion
-
+  Overall, the paper examines the number of distracted driving occurrences from 2014 to 2022. Adults show a steady decrease in occurrence with a jump back up in 2022, and the youth data on the contrary shows a steady increase of distracted driving cases. Both data show a dip in 2020 and 2021 with a jump back up in 2022. When looking at the data with both youth group and adult group, we do see an overall decreasing trend of distracted driving cases. With the big jump in 2022, tech companies should look into how to integrate driving and technology better to continue the decreasing trend in the future. 
 
 \newpage
 
