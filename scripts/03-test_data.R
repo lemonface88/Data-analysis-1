@@ -48,7 +48,7 @@ if (class(test_youth_data$age_group) != "character") {
   print("Age group has non-char value")
 }
 
-if (max(test_youth_data$offence_year) < 2024) {
+if (max(test_youth_data$offence_year) > 2024) {
   print("Incorrect offence year, future")
 }
 
@@ -61,7 +61,7 @@ if (class(test_adult_data$age_group) != "character") {
   print("Age group has non-char value")
 }
 
-if (max(test_adult_data$offence_year) < 2024) {
+if (max(test_adult_data$offence_year) > 2024) {
   print("Incorrect offence year, future")
 }
 
@@ -75,6 +75,6 @@ if (class(test_overall_data$age_group) != "character") {
   print("Age group has non-char value")
 }
 
-if (max(test_overall_data$offence_year) < 2024) {
+if (max(test_overall_data$offence_year) > 2024) {
   print("Incorrect offence year, future")
 }

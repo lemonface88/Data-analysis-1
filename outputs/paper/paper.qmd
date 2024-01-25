@@ -1,5 +1,5 @@
 ---
-title: "Does Technology Advancement Decrease Distracted Driving?"
+title: "Does Technology Advancement Over the Years Decrease Distracted Driving?"
 author: 
   - Harrison Huang
 thanks: "Code and data are available at: https://github.com/lemonface88/Distracted-Driving-Analysis"
@@ -208,6 +208,7 @@ After looking at both groups specifically looking at distracted driving, I decid
   labs(title = "Total Tickets Given Per Year", x = "Year", y = "total ticket")
 ```
 
+\newpage
 
 # Discussion
   Simply looking at the numbers of distracted driving tickets, the data shows an overall trend of decreasing occurrences. However, the youth group and adult groups show a slightly different trend with the youth group not showing a clear decreasing trend. A worthy mention is that the amount of youth data could be contributing to the different trend, because there is very little youth data compared to the adult data. Some limitation to this analysis is the data set restrictions of only being able to look at tickets given by police, there could be other factors interfering with police being able to hand out tickets such as budgets that year and overall focus of the police force of the year. After looking at the all tickets given graph @fig-all_tickets, the trend seems to follow the distracted driving graph of both age groups @fig-combined_statistics, thus I think that more factors need to be taken into consideration to make further judgement from this analysis. 

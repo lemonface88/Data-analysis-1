@@ -12,8 +12,6 @@ library(tidyverse)
 
 #### Build simulated data ####
 set.seed(888)
-install.packages("gitcreds")
-library(gitcreds)
 
 # Ref from https://github.com/ThomasWilliamFox/toronto_child_care/blob/master/scripts/00-simulate_data.R
 # Ref from https://github.com/InessaDeAngelis/Toronto_Elections/blob/main/scripts/00-simulate_data.R
