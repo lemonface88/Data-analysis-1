@@ -7,6 +7,8 @@
 # Pre-requisites: run 01-download_data.R and 02-data_cleaning.R
 # Any other information needed? If nothing is printed, all tests have passed
 
+library(usethis)
+library(gitcreds)
 
 #### Workspace setup ####
 library(tidyverse)

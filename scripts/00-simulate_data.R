@@ -40,7 +40,7 @@ simulated_ticket_data <-
     
     # ticket count are randomly generated between 1 to 60 for each data input
     ticket_count = sample(
-      x = c(1:60),
+      x = c(0:60),
       size = 1000,
       replace = TRUE)
   )
@@ -93,8 +93,46 @@ simulated_overall_data |>
   labs(title = "Both Groups Distracted Driving violations Per year", x = "Year", y = "total ticket")
 
 
+#Testing#
 
+## testing youth data ##
+if (min(simulated_youth_data$ticket_count) < 0) {
+  print("Negative number in ticket count")
+}
 
+if (class(simulated_youth_data$age_group) != "character") {
+  print("Age group has non-char value")
+}
 
+if (max(simulated_youth_data$offence_year) < 2024) {
+  print("Incorrect offence year, future")
+}
+
+## testing adult data ##
+if (min(simulated_adult_data$ticket_count) < 0) {
+  print("Negative number in ticket count")
+}
+
+if (class(simulated_adult_data$age_group) != "character") {
+  print("Age group has non-char value")
+}
+
+if (max(simulated_adult_data$offence_year) < 2024) {
+  print("Incorrect offence year, future")
+}
+
+## testing overall data ##
+
+if (min(simulated_overall_data$ticket_count) < 0) {
+  print("Negative number in ticket count")
+}
+
+if (class(simulated_overall_data$age_group) != "character") {
+  print("Age group has non-char value")
+}
+
+if (max(simulated_overall_data$offence_year) < 2024) {
+  print("Incorrect offence year, future")
+}
 
 
