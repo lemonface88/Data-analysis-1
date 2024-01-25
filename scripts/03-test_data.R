@@ -50,7 +50,6 @@ if (max(test_youth_data$offence_year) < 2024) {
   print("Incorrect offence year, future")
 }
 
-
 ## testing adult data ##
 if (min(test_adult_data$ticket_count) < 0) {
   print("Negative number in ticket count")
