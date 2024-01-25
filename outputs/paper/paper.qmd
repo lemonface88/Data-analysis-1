@@ -69,11 +69,14 @@ Data used in this paper are retrieved from Open Data Toronto Portal through the 
 
 ## Below is a table of the cleaned and filtered table of all distracted driving data
 The table is a representation of the selected columns that remain in the data set after cleaning. This table gives insight to the first 5 rows that are left in the distracted driving tickets handed out. 
+
 ```{r}
 #| message: false
 #| echo: false
 #| label: tbl-cleaned_ticket_statistics
 #| tbl-cap: Sample of Cleaned ticket Statistics Data
+
+# Ref from https://github.com/christina-wei/INF3104-1-Covid-Clinics/blob/main/outputs/paper/covid_clinics.qmd 
 
 head (cleaned_ticket_data, 5) |>
   kable(
@@ -133,6 +136,10 @@ head (only_adult_data, 5) |>
 The graph below shows the total distracted driving violations cases in each year, which is inferred from the total number of tickets given for distracted driving. Overall, the trend sees a big dip in the year 2020 and 2021, this could be due to the effect of covid. As we all know, the lock down that happened during the pandemic prevented people from leaving the house, thus might have caused the overall decrease in the number of violations in those years. 
 
 ```{r}
+#| echo: false
+#| label: fig-cleaned_youth_statistics
+#| fig-cap: Youth distracted driving
+
   only_youth_data |> 
   summarize(sum_per_year = sum(ticket_count, na.rm = TRUE),.by = offence_year) |>
   
@@ -146,6 +153,10 @@ The graph below shows the total distracted driving violations cases in each year
   The graph below shows the total distracted driving violations cases committed by adults in each year, which is inferred from the total number of tickets given for distracted driving. Overall, the trend sees a big dip in the year 2020 and 2021, this displays a similar trend as the youth drivers. With the two groups of driving having overall lower violations in the year 2020 and 2021, it could suggest that those years might have some other contributing factors involved other than the advancement of technology. 
 
 ```{r}
+#| echo: false
+#| label: fig-cleaned_adult_statistics
+#| fig-cap: Adult distracted driving
+#| 
   only_adult_data |> 
   summarize(sum_per_year = sum(ticket_count, na.rm = TRUE),.by = offence_year) |>
   
@@ -159,7 +170,11 @@ The graph below shows the total distracted driving violations cases in each year
 
 Upon looking at the summary, the graph below shows the total distracted driving violations cases committed by both adults and youth in each year, which is inferred from the total number of tickets given for distracted driving. As absorbed above, 2020 and 2021 both indicate a big decrease in violation numbers compared to all the other years. However, by combining both of the you and adult data, the overall trend observed is that distracted driving violations have steadily decreased during 2015 to 2019. Despite the numbers increasing again in 2022, the total violations compared to 2015 is still less by about 4000 cases.
 
+
 ```{r}
+#| echo: false
+#| label: fig-combined_statistics
+#| fig-cap: Youth and adult distracted driving
   sum_total_data |> 
   ggplot(mapping = aes(x = offence_year, y = total_violations))+ 
   geom_bar(stat= 'identity') +
@@ -168,7 +183,8 @@ Upon looking at the summary, the graph below shows the total distracted driving 
 ```
 
 # Discussion
-  Simply looking at the numbers of distracted driving tickets, the data shows an overall trend of decreasing occurrences. However, the youth group and adult groups show a slightly different trend with the youth group not showing a clear decreasing trend. A worthy mention is that the amount of youth data could be contributing to the different trend, because there is very little youth data compared to the adult data. In the future, it would be worthwhile to look at other data sets such as integrated technology trends such as how many models of cars have car play or support handless controls. 
+  Simply looking at the numbers of distracted driving tickets, the data shows an overall trend of decreasing occurrences. However, the youth group and adult groups show a slightly different trend with the youth group not showing a clear decreasing trend. A worthy mention is that the amount of youth data could be contributing to the different trend, because there is very little youth data compared to the adult data. In the future, it would be worthwhile to look at other data sets such as integrated technology trends such as how many models of cars have car play or support hand less controls. 
+  
 # Conclusion
   Overall, the paper examines the number of distracted driving occurrences from 2014 to 2022. Adults show a steady decrease in occurrence with a jump back up in 2022, and the youth data on the contrary shows a steady increase of distracted driving cases. Both data show a dip in 2020 and 2021 with a jump back up in 2022. When looking at the data with both youth group and adult group, we do see an overall decreasing trend of distracted driving cases. With the big jump in 2022, tech companies should look into how to integrate driving and technology better to continue the decreasing trend in the future. 
 
