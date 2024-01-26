@@ -166,7 +166,7 @@ The graph below shows the total distracted driving violations cases in each year
 
 ## Distracted driving by adult group per year
 
-The graph below shows the total distracted driving violations cases committed by adults in each year, which is inferred from the total number of tickets given for distracted driving. Overall, the trend sees a big dip in the year 2020 and 2021, this displays a similar trend as the youth drivers. With the two groups of driving having overall lower violations in the year 2020 and 2021, it could suggest that those years might have some other contributing factors involved other than the advancement of technology. @fig-cleaned_adult_statistics
+The graph below shows the total distracted driving violations cases committed by adults in each year, which is inferred from the total number of tickets given for distracted driving. Overall, the graph displays a doownward decreasing trend of distracted driving, interesting thing to mention is the dip in year 2020 and 2021, this displays a similar trend as the youth drivers. With the two groups of driving having overall lower violations in the year 2020 and 2021, it could suggest that those years might have some other contributing factors involved other than the advancement of technology. @fig-cleaned_adult_statistics
 
 ```{r fig.pos="H"}
 #| echo: false
@@ -184,7 +184,7 @@ The graph below shows the total distracted driving violations cases committed by
 
 ## Overall distracted driving by both groups per year
 
-Upon looking at the summary, the graph below shows the total distracted driving violations cases committed by both adults and youth in each year, which is inferred from the total number of tickets given for distracted driving. As absorbed above, 2020 and 2021 both indicate a big decrease in violation numbers compared to all the other years. However, by combining both of the you and adult data, the overall trend observed is that distracted driving violations have steadily decreased during 2015 to 2019. Despite the numbers increasing again in 2022, the total violations compared to 2015 is still less by about 4000 cases. @fig-combined_statistics
+Upon looking at the summary, the graph below shows the total distracted driving violations cases committed by both adults and youth in each year, which is inferred from the total number of tickets given for distracted driving. As absorbed above, 2020 and 2021 both indicate a big decrease in violation numbers compared to all the other years. However, by combining both of the you and adult data, the overall trend observed is that distracted driving violations have steadily decreased during 2015 to 2019. Despite the numbers increasing again in 2022, numbers are still much lower compared to 2015 and 2016 @fig-combined_statistics
 
 
 ```{r fig.pos="H"}
